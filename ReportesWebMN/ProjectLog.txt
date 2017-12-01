@@ -1,0 +1,3 @@
+= Git Ignore =
+ * https://github.com/javaee-samples/javaee7-samples/blob/master/.gitignore
+ 
