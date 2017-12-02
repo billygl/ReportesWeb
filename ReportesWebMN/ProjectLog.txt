@@ -1,3 +1,6 @@
+= Spring Scheduled Task =
+ * http://websystique.com/spring/spring-job-scheduling-using-xml-configuration/
+
 = Spring REST =
  * http://websystique.com/springmvc/spring-4-mvc-rest-service-example-using-restcontroller/
 

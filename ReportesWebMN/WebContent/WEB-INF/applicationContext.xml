@@ -3,22 +3,28 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:task="http://www.springframework.org/schema/task"
 	xsi:schemaLocation="
 		http://www.springframework.org/schema/beans	http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
-		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd">
 	
 	
 	<context:component-scan base-package="com.dispatch" />
 	    
-	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven />
 	
 	<mvc:resources mapping="/images/**" location="/images/" />
-	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"/>
 		<property name="suffix" value=".jsp"/>
 	</bean>
+	
+	<task:scheduled-tasks scheduler="ReportScheduler">
+        <task:scheduled ref="ReportJob" method="printMessage" fixed-delay="300000" />
+    </task:scheduled-tasks>
+ 
+    <task:scheduler id="ReportScheduler"/>
 	
 </beans>
