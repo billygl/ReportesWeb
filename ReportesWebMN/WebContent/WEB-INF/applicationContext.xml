@@ -17,7 +17,8 @@
 	    
 	<mvc:annotation-driven />
 	
-	<mvc:resources mapping="/images/**" location="/images/" />
+	<mvc:resources mapping="/res/**" location="/res/" />
+	
 	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/jsp/"/>
 		<property name="suffix" value=".jsp"/>
