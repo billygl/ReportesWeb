@@ -11,8 +11,14 @@ import com.dispatch.bean.ReporteBean;
 public class ReporteRestController {
  
     @RequestMapping("/reporte/{reporte}")
-    public ReporteBean message(@PathVariable String reporte) {//REST Endpoint. 
-        ReporteBean reporteBean = new ReporteBean(reporte, "-");
+    public ReporteBean getReporte(@PathVariable String reporte) {//REST Endpoint. 
+        ReporteBean reporteBean = new ReporteBean(0, reporte, "-");
+        return reporteBean;
+    }
+    ///grafico/graficoid int
+    @RequestMapping("/grafico/{id}")
+    public ReporteBean getGrafico(@PathVariable int id) {//REST Endpoint. 
+        ReporteBean reporteBean = new ReporteBean(id, "-", "-");
         return reporteBean;
     }
 }

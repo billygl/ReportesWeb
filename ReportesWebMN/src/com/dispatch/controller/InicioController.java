@@ -11,7 +11,12 @@ public class InicioController {
 	
    @RequestMapping(method = RequestMethod.GET)
    public String inicio(ModelMap model) {
-	   model.addAttribute("titulo", "Reportes!");
+	  model.addAttribute("titulo", "Reportes!");
       return "reports/index";
+   }
+   @RequestMapping(value="ayuda", method = RequestMethod.GET)
+   public String ayuda(ModelMap model) {
+	  model.addAttribute("titulo", "Ayuda!");
+      return "ayuda";
    }
 }
