@@ -1,3 +1,6 @@
+= Spring + Angular =
+ * http://g00glen00b.be/spring-websockets-angular/
+
 = Spring Scheduled Task =
  * http://websystique.com/spring/spring-job-scheduling-using-xml-configuration/
 
