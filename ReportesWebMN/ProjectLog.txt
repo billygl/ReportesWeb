@@ -1,3 +1,5 @@
 = Git Ignore =
  * https://github.com/javaee-samples/javaee7-samples/blob/master/.gitignore
- 
+
+= Maven =
+ * https://maven.apache.org/plugins/maven-war-plugin/usage.html 
