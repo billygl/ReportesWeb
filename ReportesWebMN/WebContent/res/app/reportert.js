@@ -27,6 +27,7 @@ function ReporteRTController($scope){
 		$scope.socket.stomp.connect({}, function() {
 			$scope.socket.stomp.subscribe(CHANNEL1, $scope.notify);
 		});
+		$scope.socket.stomp.debug = null;
 		$scope.socket.client.onclose = $scope.reconnect;
 	};
 	
