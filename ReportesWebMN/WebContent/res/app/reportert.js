@@ -4,8 +4,14 @@ function ReporteRTController($scope){
 		client: null,
 		stomp: null
 	};
+	$scope.contador = 0;
+	$scope.reportes = [];
 	$scope.notify = function(/** Message */ message) {		
-		console.log(message.body);//Reporte
+		var reporte = JSON.parse(message.body);//Reporte		
+		$scope.reportes.push(reporte.titulo + "-" + $scope.contador);
+		$scope.$apply(function(){
+			$scope.contador++;
+		});
 	};	
 	$scope.reconnect = function() {
 		setTimeout($scope.initSockets, 10000);
