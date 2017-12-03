@@ -14,9 +14,10 @@
 	<meta charset="UTF-8" />
 
 	<link rel="stylesheet" type="text/css" href="res/css/all.css">
+	
 </head>
 
-<body>
+<body ng-app="reportes">
 	<!--[if lt IE 7]>
 		<p class="chromeframe" style="background:#eee; padding:10px; width:100%">Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
 	<![endif]-->
@@ -29,11 +30,11 @@
 			</a>
 
 			<ul>
-				<li class="title">Category Title</li>
-				<li><a href="#">Nav Item 1</a></li>
-				<li><a href="#">Nav Item 2</a></li>
-				<li><a href="#">Nav Item 3</a></li>
-				<li><a href="#">Nav Item 4</a></li>
+				<li class="title">Reportes</li>
+				<li><a href="#!reporte1">Reporte 1</a></li>
+				<li><a href="#!reportex1">Reporte X 1</a></li>
+				<li><a href="#!reportex2">Reporte X 2</a></li>
+				<li><a href="#!reportex3">Reporte X 3</a></li>
 			</ul>
 
 			<p class="foot">
@@ -54,17 +55,25 @@
 				</a>
 			</div>
 
-			<div class="view-wrap">
-												
-
+			<div class="view-wrap">	
+				<div ng-controller="frecuentesCtrl">
+				<button class="button-darkblue" ng-click="agregar()">Agregar frecuente</button><br>				
+				Frecuentes: <span ng-repeat="reporte in frecuentes">- {{reporte}}</span><br>
+				Nro. Frecuentes: {{frecuentes.length}}
+				</div>				
+				<div ng-view>REPORTE</div>
 			</div>
 		</div>
 	</div>
 	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
+	<script src="res/js/angular.min.js"></script>
+	<script src="res/js/angular-route.min.js"></script>	
 	<script src="res/js/jquery.min.js"></script>
 	<script src="res/js/snap.min.js"></script>
 	<script src="res/js/responsive-elements.js"></script>
 	<script src="res/js/gridforms.js"></script>
 	<script src="res/js/flask.js"></script>
+	<script src="res/app/app.js"></script>		
+	<script src="res/app/reporte.js"></script>		
 </body>
 </html>
