@@ -72,6 +72,8 @@
 	<script src="res/js/snap.min.js"></script>
 	<script src="res/js/responsive-elements.js"></script>
 	<script src="res/js/gridforms.js"></script>
+	<script type="text/javascript" src="res/js/sockjs.min.js"></script>
+	<script type="text/javascript" src="res/js/stomp.min.js"></script>
 	<script src="res/js/flask.js"></script>
 	<script src="res/app/app.js"></script>		
 	<script src="res/app/reporte.js"></script>		

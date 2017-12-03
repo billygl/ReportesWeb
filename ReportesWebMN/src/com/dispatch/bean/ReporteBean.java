@@ -5,6 +5,9 @@ public class ReporteBean {
 	String titulo;	
 	String descripcion;
 	
+	public ReporteBean() {
+				
+	}
 	public ReporteBean(int id, String titulo, String descripcion) {
 		this.id = id;
 		this.titulo = titulo;

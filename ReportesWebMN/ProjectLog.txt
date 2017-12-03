@@ -1,3 +1,10 @@
+= Spring Messaging + Websocket =
+ * http://jmesnil.net/stomp-websocket/doc/
+ * 
+
+= Angular Component=
+ * https://docs.angularjs.org/guide/component
+ 
 = Spring + Angular =
  * http://g00glen00b.be/spring-websockets-angular/
 

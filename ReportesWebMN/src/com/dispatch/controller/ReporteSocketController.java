@@ -9,9 +9,11 @@ import com.dispatch.bean.ReporteBean;
 @Controller
 public class ReporteSocketController {
 	
-    @MessageMapping("/getreporte")
-    @SendTo("/reporte/reporte1")
-    public ReporteBean greeting(ReporteBean reporte) throws Exception {
+    @MessageMapping("/getreporte")//prefix con application-destination-prefix
+    @SendTo("/reporte/reporte1")//simple-broker prefix
+    public ReporteBean testReporte(ReporteBean reporte) throws Exception {
+    	reporte.setDescripcion("---");
+    	System.out.println("testReporte");
         return reporte;
     }
 }
