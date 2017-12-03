@@ -13,6 +13,9 @@ angular.module("reportes", ["ngRoute"])
     .when("/reportex3", {
     	template: "<reporte titulo='reporte x3'></reporte>"
     })
+    .when("/reportert", {
+    	template: "<reportert titulo='reporte rt'></reportert>"
+    })
 })
 .controller("frecuentesCtrl", function($scope) {
     $scope.frecuentes = ["Flota"];    

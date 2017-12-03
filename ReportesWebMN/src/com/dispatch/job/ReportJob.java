@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Component;
 
+import com.dispatch.bean.ReporteBean;
+
 @Component("ReportJob")
 public class ReportJob {
 	@Autowired
@@ -12,7 +14,8 @@ public class ReportJob {
 	public static final String CHANNEL_REPORTE1 = "/reporte/reporte1";
 	
 	public void printMessage() {
-		//webSocket.convertAndSend(CHANNEL_REPORTE1, new String(message.getBody()));
+		ReporteBean reporte = new ReporteBean(1, "reporte1", "");
+		webSocket.convertAndSend(CHANNEL_REPORTE1, reporte);
 		System.out.println("Sending report...");
 	}
 }

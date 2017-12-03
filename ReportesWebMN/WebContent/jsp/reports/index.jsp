@@ -35,6 +35,7 @@
 				<li><a href="#!reportex1">Reporte X 1</a></li>
 				<li><a href="#!reportex2">Reporte X 2</a></li>
 				<li><a href="#!reportex3">Reporte X 3</a></li>
+				<li><a href="#!reportert">Reporte R</a></li>
 			</ul>
 
 			<p class="foot">
@@ -77,5 +78,6 @@
 	<script src="res/js/flask.js"></script>
 	<script src="res/app/app.js"></script>		
 	<script src="res/app/reporte.js"></script>		
+	<script src="res/app/reportert.js"></script>
 </body>
 </html>
