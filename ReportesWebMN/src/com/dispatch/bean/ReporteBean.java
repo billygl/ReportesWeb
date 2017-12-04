@@ -1,9 +1,12 @@
 package com.dispatch.bean;
 
+import java.util.List;
+
 public class ReporteBean {
 	int id;
 	String titulo;	
 	String descripcion;
+	List<DescargasBean> descargas;
 	
 	public ReporteBean() {
 				
@@ -31,5 +34,11 @@ public class ReporteBean {
 	}
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
+	}
+	public List<DescargasBean> getDescargas() {
+		return descargas;
+	}
+	public void setDescargas(List<DescargasBean> descargas) {
+		this.descargas = descargas;
 	}
 }

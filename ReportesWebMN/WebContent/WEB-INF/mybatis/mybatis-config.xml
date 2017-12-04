@@ -8,6 +8,7 @@
 		<!-- changes from the defaults -->
 		<setting name="lazyLoadingEnabled" value="false" />
 		<setting name="mapUnderscoreToCamelCase" value="true"/>
+		<setting name="logImpl" value="LOG4J"/>
 	</settings>
 	<typeAliases>
 		<typeAlias type="com.dispatch.bean.DescargasBean" alias="descargasBean"/>

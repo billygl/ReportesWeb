@@ -3,7 +3,7 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.dispatch.dao.DescargasDAO">
-	<sql id="sqlSchema"></sql>
+	<sql id="sqlBD">TRACTORES.</sql>
 	
 	<resultMap id="result" type="DescargasBean">
         <result property="id" column="ID"/>
@@ -18,7 +18,13 @@
 			   COMP_DESTINO,
 			   TONELAJE,
 			   CATEGORIA
-		FROM TRACTORES.ETL.DESCARGAS
+		FROM <include refid="sqlBD"/>ETL.DESCARGAS
+		WHERE FECHA BETWEEN #{fromDate} AND #{toDate}
+		AND TURNO IN  
+		<foreach item="item" index="index" collection="shifts" open="(" separator="," close=")">
+		#{item}
+		</foreach> 
+		
 	</select>
 
 </mapper>

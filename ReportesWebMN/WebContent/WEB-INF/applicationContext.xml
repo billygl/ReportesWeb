@@ -25,7 +25,7 @@
 	</bean>
 	
 	<task:scheduled-tasks scheduler="ReportScheduler">
-        <task:scheduled ref="ReportJob" method="printMessage" fixed-delay="10000" />
+        <task:scheduled ref="ReportJob" method="printMessage" fixed-delay="30000" />
     </task:scheduled-tasks>
  
     <task:scheduler id="ReportScheduler"/>
@@ -36,6 +36,7 @@
        </websocket:stomp-endpoint>
        <websocket:simple-broker prefix="/reporte"/>
 	</websocket:message-broker>
+
 	
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
 	  <constructor-arg index="0" ref="sqlSessionFactory" />

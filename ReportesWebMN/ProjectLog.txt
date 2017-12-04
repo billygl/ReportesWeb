@@ -1,3 +1,7 @@
+= Spring + MyBatis =
+ * http://www.mybatis.org/mybatis-3/getting-started.html
+ * http://www.mybatis.org/spring/getting-started.html
+ 
 = Spring Messaging + Websocket =
  * http://jmesnil.net/stomp-websocket/doc/
  * Angular SockJS + STOMP 
