@@ -37,4 +37,9 @@
        <websocket:simple-broker prefix="/reporte"/>
 	</websocket:message-broker>
 	
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+	  <constructor-arg index="0" ref="sqlSessionFactory" />
+    </bean>
+    
+    <import resource="jdbcContext.xml"/> 
 </beans>

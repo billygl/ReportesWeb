@@ -1,6 +1,8 @@
 = Spring Messaging + Websocket =
  * http://jmesnil.net/stomp-websocket/doc/
- * 
+ * Angular SockJS + STOMP 
+  * 
+  * https://github.com/beevelop/ng-stomp
 
 = Angular Component=
  * https://docs.angularjs.org/guide/component
