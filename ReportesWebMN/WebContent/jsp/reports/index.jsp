@@ -79,7 +79,7 @@
 	<script src="res/js/sockjs.min.js"></script>
 	<script src="res/js/stomp.min.js"></script>
 	<script src="res/js/flask.js"></script>
-	<script src="res/js/angular-underscore.js"></script>	
+	<script src="res/js/angular-underscore.min.js"></script>	
 	<script src="res/app/app.js"></script>		
 	<script src="res/app/reporte.js"></script>		
 	<script src="res/app/reportert.js"></script>
