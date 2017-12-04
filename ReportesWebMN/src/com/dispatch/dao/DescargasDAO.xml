@@ -13,7 +13,7 @@
      </resultMap>
 	
 	<select id="getDescargas"  resultType="descargasBean">  
-		SELECT TOP 10 FECHA, 
+		SELECT FECHA, 
 			   TURNO,
 			   COMP_DESTINO,
 			   TONELAJE,
