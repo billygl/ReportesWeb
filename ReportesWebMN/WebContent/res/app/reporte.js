@@ -4,7 +4,8 @@ function ReporteController($scope, $http){
 	//TODO add filtros dinámicos
 	$scope.categorias = [];
 	$scope.graph = function(){
-		Highcharts.chart('container', {
+		console.log(ctrl.titulo);
+		Highcharts.chart('container' + ctrl.titulo, {
 		    chart: {
 		        type: 'column'
 		    },
@@ -51,19 +52,22 @@ function ReporteController($scope, $http){
     	$http.get(API_DESCARGAS)
         .then(function(response) {
         	console.log(response.data);
-        	
-        	var categorias_group = _.chain(response.data)
-        	.groupBy(function(elem){return elem.categoria})
+        	if(!ctrl.tipo){
+        		ctrl.tipo = 'categoria';
+        	}
+        	var data_group = _.chain(response.data)
+        	.groupBy(function(elem){return elem[ctrl.tipo]})
         	.map(function(value, key){//value del atributo del objeto
         	  //value;//array
         	  total = _.reduce(value, function(memo, obj){return memo + obj.tonelaje}, 0)
-        	  return {categoria: key, total: total};
+        	  return {grupo: key, total: total};
         	})
-        	.sortBy(function(elem){return elem.categoria;})
+        	.sortBy(function(elem){return elem.grupo;})
         	.value();
         	
-        	$scope.categorias = _.pluck(categorias_group, "categoria");
-        	$scope.data = _.pluck(categorias_group, "total");
+        	
+        	$scope.categorias = _.pluck(data_group, "grupo");
+        	$scope.data = _.pluck(data_group, "total");
         	$scope.graph();
         	/*var series = $scope.chart.series[0];
         	for(var i = 0; i < response.data.length / 50 ; i++){
@@ -83,6 +87,7 @@ angular.module('reportes')
   templateUrl: "res/tpl/reporte.html",
   controller: ReporteController,
   bindings: {
-	  titulo: '@'
+	  titulo: '@',
+	  tipo: '@'
   }
 });

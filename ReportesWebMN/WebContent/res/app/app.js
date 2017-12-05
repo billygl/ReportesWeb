@@ -5,16 +5,16 @@ angular.module("reportes", ["ngRoute", "angular-underscore"])
         templateUrl : "res/tpl/reporte1.html"
     })
     .when("/reportex1", {
-    	template: "<reporte titulo='reporte x1'></reporte>"
+    	template: "<reporte titulo='reportex1' tipo='compDestino'></reporte>"
     })
     .when("/reportex2", {
-    	template: "<reporte titulo='reporte x2'></reporte>"
+    	template: "<reporte titulo='reportex2'></reporte>"
     })
     .when("/reportex3", {
-    	template: "<reporte titulo='reporte x3'></reporte>"
+    	template: "<reporte titulo='reportex3'></reporte>"
     })
     .when("/reportert", {
-    	template: "<reportert titulo='reporte rt'></reportert>"
+    	template: "<reportert titulo='reportert'></reportert>"
     })
 })
 .controller("frecuentesCtrl", function($scope) {

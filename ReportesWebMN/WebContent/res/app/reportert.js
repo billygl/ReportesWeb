@@ -13,21 +13,28 @@ function ReporteRTController($scope){
 		console.log(cargas);
 		//procesar datos
 		//data = [[x, y], [x, y], [x, y], [x, y]]
+		if(cargas.length == 0)return;
+		var acumulado = 0;
 		var data = _.chain(cargas)
 		.groupBy(function(obj){
-		return obj.hora;
+			return obj.hora;
 		})
 		.map(function(list, key){
 		  total = _.reduce(list, function(memo, obj){return memo + obj.tonelaje}, 0);
-		  date = new Date();//timestamp desde sql
+		  date = new Date(key);//timestamp desde sql
 		  date.setMilliseconds(0);
 		  date.setSeconds(0);
 		  date.setMinutes(0);
-		  date.setHours(+key);
-		  return [date.getTime(), total];
+		  date.setHours(+key);//-+GMT
+		  acumulado += total;
+		  return {
+			  tonelaje: [date.getTime(), total],
+			  acumulado: [date.getTime(), acumulado]
+			  }
 		})
 		.value();
-        $scope.chart.series[0].setData(data);//data
+        $scope.chart.series[0].setData(_.pluck(data, 'tonelaje'));
+        $scope.chart.series[1].setData(_.pluck(data, 'acumulado'));
 	};	
 	$scope.reconnect = function() {
 		setTimeout($scope.initSockets, 10000);
@@ -66,18 +73,46 @@ function ReporteRTController($scope){
 	            tickPixelInterval: 150,
 	            maxZoom: 20 * 1000
 	        },
-	        yAxis: {
-	            minPadding: 0.2,
-	            maxPadding: 0.2,
-	            title: {
-	                text: 'Value',
-	                margin: 80
-	            }
-	        },
+	        yAxis: [
+	        	{
+					minPadding: 0.2,
+					maxPadding: 0.2,
+					labels: {
+						style: {
+							color: Highcharts.getOptions().colors[1]
+						}
+					},
+					title: {
+						text: '(Kt)',
+						margin: 10
+					}
+				}, { // Secondary yAxis
+					labels: {
+						style: {
+							color: Highcharts.getOptions().colors[1]
+						}
+					},
+					title: {
+						text: 'Acumulado',
+						style: {
+							color: Highcharts.getOptions().colors[1]
+						}
+					},					
+					opposite: true
+				}	        	
+	        ],
 	        series: [{
-	            name: 'Random data',
-	            data: []
-	        }]
+				name: 'Tonelaje',
+				type: 'column',
+				data: []
+				}, {
+					name: 'Acumulado',
+					type: 'spline',
+					yAxis: 1,
+					color: '#cc0000',
+					data: []
+				}
+			]
 	    });  
 	};
 }
