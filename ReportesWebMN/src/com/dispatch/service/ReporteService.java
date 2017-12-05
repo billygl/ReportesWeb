@@ -25,11 +25,20 @@ public class ReporteService {
 	public List<DescargasBean> getDescargas(Date fromDate, Date toDate, List<String> shifts) {
 		List<DescargasBean> list = new ArrayList<DescargasBean>();
 		try {
-			SimpleDateFormat dt1 = new SimpleDateFormat("yyyy-MM-dd");	
-			System.out.println(shifts.size());
+			SimpleDateFormat dt1 = new SimpleDateFormat("dd/MM/yyyy");
 			list = descargasDAO.getDescargas(dt1.format(fromDate), dt1.format(toDate), shifts);
 		} catch (Exception e) {
 			//TODO Log
+		}
+		return list;
+	}	
+	public List<DescargasBean> getDescargasActual() {
+		List<DescargasBean> list = new ArrayList<DescargasBean>();
+		try {
+			list = descargasDAO.getDescargasActual();
+		} catch (Exception e) {
+			//TODO Log
+			e.printStackTrace();
 		}
 		return list;
 	}	

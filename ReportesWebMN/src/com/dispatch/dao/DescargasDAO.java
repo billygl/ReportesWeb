@@ -11,4 +11,5 @@ public interface DescargasDAO {
 			@Param("fromDate") String fromDate, 
 			@Param("toDate") String toDate, 
 			@Param("shifts") List<String> shifts);
+	public List<DescargasBean> getDescargasActual();
 }

@@ -27,4 +27,21 @@
 		
 	</select>
 
+	<select id="getDescargasActual"  resultType="descargasBean">  
+	<![CDATA[ 
+		DECLARE @TURNO VARCHAR(1)
+		DECLARE @HORA INT
+		SET @TURNO = 'N'
+		SET @HORA = DATEPART(hour, GETDATE())
+		IF @HORA >= 7 AND @HORA <=19
+			SET @TURNO = 'D'
+		
+		SELECT FECHA, HORA_INT, [COMP_DESTINO], CATEGORIA, SUM([TONELAJE]) TONELAJE
+		FROM TRACTORES.[ETL].[DESCARGAS]
+		WHERE FECHA = CONVERT(DATE,GETDATE()-1)
+		AND TURNO = @TURNO
+		GROUP BY FECHA, HORA_INT, [COMP_DESTINO], CATEGORIA
+	]]>
+	</select>
+
 </mapper>

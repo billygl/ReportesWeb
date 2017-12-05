@@ -49,6 +49,11 @@ public class ReporteRestController {
     		) {
         return reporteService.getDescargas(fromDate, toDate, shifts);
     }
+    @RequestMapping("/descargas_actual")
+    public List<DescargasBean> getDescargasActual() {
+    	return reporteService.getDescargasActual();
+    }
+    
     @RequestMapping("/reporte")
     public ReporteBean getReporte() {
     	return reporteService.getReporte();
