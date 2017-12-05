@@ -21,7 +21,7 @@ function ReporteRTController($scope){
 		})
 		.map(function(list, key){
 		  total = _.reduce(list, function(memo, obj){return memo + obj.tonelaje}, 0);
-		  date = new Date(key);//timestamp desde sql
+		  date = new Date();//timestamp desde sql
 		  date.setMilliseconds(0);
 		  date.setSeconds(0);
 		  date.setMinutes(0);
