@@ -5,7 +5,7 @@ import java.util.Date;
 public class DescargasBean {
 	Date fecha;
 	String turno;
-	String CompDestino;
+	String compDestino;
 	double tonelaje;
 	int hora;
 	String categoria;
@@ -29,10 +29,10 @@ public class DescargasBean {
 		this.hora = hora;
 	}
 	public String getCompDestino() {
-		return CompDestino;
+		return compDestino;
 	}
 	public void setCompDestino(String compDestino) {
-		CompDestino = compDestino;
+		this.compDestino = compDestino;
 	}
 	public double getTonelaje() {
 		return tonelaje;

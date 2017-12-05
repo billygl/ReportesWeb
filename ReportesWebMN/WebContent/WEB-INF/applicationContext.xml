@@ -26,6 +26,7 @@
 	
 	<task:scheduled-tasks scheduler="ReportScheduler">
         <task:scheduled ref="ReportJob" method="printMessage" fixed-delay="30000" />
+        <task:scheduled ref="ReportJob" method="sendCargas" fixed-delay="10000" />        
     </task:scheduled-tasks>
  
     <task:scheduler id="ReportScheduler"/>
