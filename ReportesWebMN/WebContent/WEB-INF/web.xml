@@ -2,14 +2,23 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>ReportesWebMN</display-name>
    
-  <listener>
+   <context-param>
+		<param-name>appName</param-name>
+		<param-value>Reportes Mina</param-value>
+   </context-param>
+   <context-param>
+		<param-name>appVersion</param-name>
+		<param-value>v0.0</param-value>
+   </context-param>
+   
+   <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener>
+   </listener>
 
-    <context-param>
+   <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
-    </context-param>
+   </context-param>
 
     <servlet>
         <servlet-name>app</servlet-name>

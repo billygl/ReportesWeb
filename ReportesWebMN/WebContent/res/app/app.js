@@ -1,4 +1,4 @@
-angular.module("reportes", ["ngRoute"])
+angular.module("reportes", ["ngRoute", "angular-underscore"])
 .config(function($routeProvider) {
     $routeProvider
     .when("/reporte1", {

@@ -6,12 +6,19 @@ function ReporteRTController($scope){
 	};
 	$scope.contador = 0;
 	$scope.reportes = [];
+	$scope.chart = {};
 	$scope.notify = function(/** Message */ message) {		
 		var reporte = JSON.parse(message.body);//Reporte		
 		$scope.reportes.push(reporte.titulo + "-" + $scope.contador);
 		$scope.$apply(function(){
 			$scope.contador++;
 		});
+		var point = [(new Date()).getTime(), 50];
+		var series = $scope.chart.series[0],
+        shift = series.data.length > 20; // shift if the series is 
+                                         // longer than 20
+	    // add the point
+        $scope.chart.series[0].addPoint(point, true, shift);  
 	};	
 	$scope.reconnect = function() {
 		setTimeout($scope.initSockets, 10000);
@@ -34,7 +41,33 @@ function ReporteRTController($scope){
 	$scope.initSockets();
 	
 	this.$onInit = function() {
-		$scope.titulo_procesado = ctrl.titulo;		
+		$scope.titulo_procesado = ctrl.titulo;
+		$scope.chart = new Highcharts.Chart({
+	        chart: {
+	            renderTo: 'container',
+	            defaultSeriesType: 'spline'
+	        },
+	        title: {
+	            text: ctrl.titulo
+	        },
+	        xAxis: {
+	            type: 'datetime',
+	            tickPixelInterval: 150,
+	            maxZoom: 20 * 1000
+	        },
+	        yAxis: {
+	            minPadding: 0.2,
+	            maxPadding: 0.2,
+	            title: {
+	                text: 'Value',
+	                margin: 80
+	            }
+	        },
+	        series: [{
+	            name: 'Random data',
+	            data: []
+	        }]
+	    });  
 	};
 }
 angular.module('reportes')
