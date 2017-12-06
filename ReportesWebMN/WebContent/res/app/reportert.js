@@ -1,4 +1,4 @@
-function ReporteRTController($scope){
+function ReporteRTController($scope, $timeout){
 	var ctrl = this;
 	$scope.socket = {
 		client: null,
@@ -10,7 +10,6 @@ function ReporteRTController($scope){
 	$scope.notify = function(/** Message */ message) {};
 	$scope.notify2 = function(message) {		
 		var cargas = JSON.parse(message.body);//array de cargas		
-		console.log(cargas);
 		//procesar datos
 		//data = [[x, y], [x, y], [x, y], [x, y]]
 		if(cargas.length == 0)return;
@@ -55,22 +54,20 @@ function ReporteRTController($scope){
 		$scope.socket.stomp.debug = null;
 		$scope.socket.client.onclose = $scope.reconnect;
 	};
-	
-	$scope.initSockets();
-	
-	this.$onInit = function() {
-		$scope.titulo_procesado = ctrl.titulo;
-		$scope.chart = new Highcharts.Chart({
+	$scope.graph = function(){
+		$scope.chart = Highcharts.chart($scope.container, {
 	        chart: {
-	            renderTo: 'container',
-	            defaultSeriesType: 'spline'
+	            defaultSeriesType: 'spline',
+	            events: {
+	            	load: $scope.initSockets
+	            }
 	        },
 	        title: {
 	            text: ctrl.titulo
 	        },
 	        xAxis: {
 	            type: 'datetime',
-	            tickPixelInterval: 150,
+	            tickPixelInterval: 50,
 	            maxZoom: 20 * 1000
 	        },
 	        yAxis: [
@@ -113,7 +110,15 @@ function ReporteRTController($scope){
 					data: []
 				}
 			]
-	    });  
+	    }); 
+	}
+	this.$onInit = function() {
+		$scope.titulo_procesado = ctrl.titulo;
+		$scope.container = 'cnrptrt'  + ctrl.titulo;
+		console.log($("#" + $scope.container));
+		//$scope.graph();
+		//TODO improve
+		$timeout($scope.graph, 2500);//la vista carga despues de $scope.graph. Esperamos 2 segundos
 	};
 }
 angular.module('reportes')

@@ -12,6 +12,9 @@ public class InicioController {
    @RequestMapping(method = RequestMethod.GET)
    public String inicio(ModelMap model) {
 	  model.addAttribute("titulo", "Reportes!");
+	  
+	  //validate user is logged
+	  
       return "reports/index";
    }
    @RequestMapping(value="ayuda", method = RequestMethod.GET)

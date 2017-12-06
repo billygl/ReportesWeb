@@ -36,7 +36,14 @@
         <url-pattern>/app/*</url-pattern>
     </servlet-mapping>
   
-   
+   <servlet>
+	    <servlet-name>app.jsp</servlet-name>
+	    <jsp-file>/index.jsp</jsp-file>
+	</servlet>
+	<servlet-mapping>
+	    <servlet-name>app.jsp</servlet-name>
+	    <url-pattern>/app</url-pattern>
+	</servlet-mapping>
   
     <welcome-file-list>
 	    <welcome-file>index.html</welcome-file>

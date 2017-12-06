@@ -12,9 +12,10 @@
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-touch-fullscreen" content="yes">
 	<meta charset="UTF-8" />
-
 	<link rel="stylesheet" type="text/css" href="res/css/all.css">
-	
+	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
+	<link rel="stylesheet" type="text/css" href="res/css/ui-carousel.min.css">	
+	<link rel="stylesheet" type="text/css" href="res/css/app.css">
 </head>
 
 <body ng-app="reportes">
@@ -35,7 +36,8 @@
 				<li><a href="#!reportex1">Reporte X 1</a></li>
 				<li><a href="#!reportex2">Reporte X 2</a></li>
 				<li><a href="#!reportex3">Reporte X 3</a></li>
-				<li><a href="#!reportert">Reporte R</a></li>
+				<li><a href="#!reportert">Reporte tiempo real</a></li>
+				<li><a href="#!reporterot">Reporte rotativo</a></li>
 			</ul>
 
 			<p class="foot">
@@ -66,7 +68,7 @@
 			</div>
 		</div>
 	</div>
-	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
+	
 	<script src="res/js/angular.min.js"></script>
 	<script src="res/js/angular-route.min.js"></script>	
 	<script src="res/js/angular-resource.min.js"></script>	
@@ -81,8 +83,10 @@
 	<script src="res/js/stomp.min.js"></script>
 	<script src="res/js/flask.js"></script>
 	<script src="res/js/angular-underscore.min.js"></script>	
+	<script src="res/js/ui-carousel.min.js"></script>	
 	<script src="res/app/app.js"></script>		
 	<script src="res/app/reporte.js"></script>		
 	<script src="res/app/reportert.js"></script>
+	<script src="res/app/reporterot.js"></script>
 </body>
 </html>

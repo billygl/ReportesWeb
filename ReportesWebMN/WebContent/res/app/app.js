@@ -1,4 +1,4 @@
-angular.module("reportes", ["ngRoute", "ngResource", "angular-underscore"])
+angular.module("reportes", ["ngRoute", "ngResource", "angular-underscore","ui.carousel"])
 .config(function($routeProvider) {
     $routeProvider
     .when("/reporte1", {
@@ -15,6 +15,9 @@ angular.module("reportes", ["ngRoute", "ngResource", "angular-underscore"])
     })
     .when("/reportert", {
     	template: "<reportert titulo='reportert'></reportert>"
+    })
+    .when("/reporterot", {
+    	template: "<reporterot titulo='reporterot'></reporterot>"
     })
 })
 .factory('RestAPI', function($resource) { 

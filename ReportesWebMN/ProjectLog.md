@@ -1,3 +1,7 @@
+# Angular UI Carousel
+ * https://www.npmjs.com/package/angular-ui-carousel
+ * https://mihnsen.github.io/ui-carousel/
+
 # HighCharts + Underscore
  * https://www.highcharts.com
  * http://underscorejs.org
@@ -33,6 +37,9 @@
 
 # Git Ignore
  * https://github.com/javaee-samples/javaee7-samples/blob/master/.gitignore
+
+# Bower
+ * https://bower.io/
 
 # Maven
  * https://maven.apache.org/plugins/maven-war-plugin/usage.html 
