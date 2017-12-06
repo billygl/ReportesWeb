@@ -1,6 +1,24 @@
+
+<h2>Reporte {{titulo_procesado}}</h2>
 <div>
-Reporte X {{titulo_procesado}}
-{{$ctrl.titulo}}
+<div class="grid-1 gutter-10">
+	<div class="span-1">
+		Fecha Inicio <input type="date" ng-model="fromDate">
+		Fecha Fin <input type="date" ng-model="toDate">
+	</div>
+</div>
+<div  class="grid-2 gutter-10">
+	<div class="span-1">
+		Turno 
+		<label>
+			<input class="checkbox" type="checkbox" ng-model="turno.d" ng-true-value="'D'" ng-false-value="''">D
+		</label>
+		<label>
+			<input class="checkbox" type="checkbox" ng-model="turno.n" ng-true-value="'N'" ng-false-value="''">N
+		</label>
+	</div>
+	<div class="span-1"><a class="button-blue" ng-click="search()">Buscar</a></div>
+</div>
 
 <div id="container{{$ctrl.titulo}}"></div>
 </div>

@@ -13,18 +13,18 @@
      </resultMap>
 	
 	<select id="getDescargas"  resultType="descargasBean">  
-		SELECT FECHA, 
+			   SELECT FECHA, 
 			   TURNO,
-			   COMP_DESTINO,
-			   TONELAJE,
-			   CATEGORIA
+			   COMP_DESTINO,			   
+			   CATEGORIA,
+			   SUM(TONELAJE) TONELAJE			   
 		FROM <include refid="sqlBD"/>ETL.DESCARGAS
 		WHERE FECHA BETWEEN #{fromDate} AND #{toDate}
 		AND TURNO IN  
 		<foreach item="item" index="index" collection="shifts" open="(" separator="," close=")">
 		#{item}
 		</foreach> 
-		
+		GROUP BY FECHA, TURNO, COMP_DESTINO, CATEGORIA
 	</select>
 
 	<select id="getDescargasActual"  resultType="descargasBean">  
@@ -38,7 +38,7 @@
 		
 		SELECT FECHA, HORA_INT HORA, [COMP_DESTINO], CATEGORIA, SUM([TONELAJE]) TONELAJE
 		FROM TRACTORES.[ETL].[DESCARGAS]
-		WHERE FECHA = CONVERT(DATE,GETDATE()-1)
+		WHERE FECHA BETWEEN CONVERT(DATE,GETDATE()-4) AND CONVERT(DATE,GETDATE()-3) 
 		AND TURNO = @TURNO
 		GROUP BY FECHA, HORA_INT, [COMP_DESTINO], CATEGORIA
 	]]>

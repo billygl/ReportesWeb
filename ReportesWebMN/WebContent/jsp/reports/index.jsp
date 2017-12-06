@@ -26,7 +26,7 @@
 
 		<div class="flakes-navigation">
 			<a href="/" class="logo">
-				<img src="res/img/logo.png" width="120">
+				<!-- <img src="res/img/logo.png" width="120">  -->
 			</a>
 
 			<ul>
@@ -42,6 +42,11 @@
 				Bienvenido, <b>user</b><br>
 				<a href="">Mi cuenta</a> &bullet; <a href="">Salir</a>
 			</p>
+			<div ng-controller="frecuentesCtrl">
+				<button class="button-darkblue" ng-click="agregar()">Agregar frecuente</button><br>				
+				Frecuentes: <span ng-repeat="reporte in frecuentes">- {{reporte}}</span><br>
+				Nro. Frecuentes: {{frecuentes.length}}
+			</div>	
 		</div>
 
 		<div class="flakes-content">
@@ -56,12 +61,7 @@
 				</a>
 			</div>
 
-			<div class="view-wrap">	
-				<div ng-controller="frecuentesCtrl">
-				<button class="button-darkblue" ng-click="agregar()">Agregar frecuente</button><br>				
-				Frecuentes: <span ng-repeat="reporte in frecuentes">- {{reporte}}</span><br>
-				Nro. Frecuentes: {{frecuentes.length}}
-				</div>				
+			<div class="view-wrap">			
 				<div ng-view>REPORTE</div>
 			</div>
 		</div>
@@ -69,6 +69,7 @@
 	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
 	<script src="res/js/angular.min.js"></script>
 	<script src="res/js/angular-route.min.js"></script>	
+	<script src="res/js/angular-resource.min.js"></script>	
 	<script src="res/js/jquery.min.js"></script>
 	<script src="res/js/snap.min.js"></script>
 	<script src="res/js/responsive-elements.js"></script>
