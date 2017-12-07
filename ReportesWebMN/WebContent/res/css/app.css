@@ -1,3 +1,6 @@
 a:focus {
     outline: none;
 }
+.slick-next:before, .slick-prev:before {
+	color: black;
+}

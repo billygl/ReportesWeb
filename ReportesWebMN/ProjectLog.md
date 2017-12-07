@@ -1,6 +1,5 @@
-# Angular UI Carousel
- * https://www.npmjs.com/package/angular-ui-carousel
- * https://mihnsen.github.io/ui-carousel/
+# UI Carousel
+ * http://kenwheeler.github.io/slick/
 
 # HighCharts + Underscore
  * https://www.highcharts.com

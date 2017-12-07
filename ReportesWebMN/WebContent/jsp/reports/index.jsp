@@ -14,7 +14,9 @@
 	<meta charset="UTF-8" />
 	<link rel="stylesheet" type="text/css" href="res/css/all.css">
 	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
-	<link rel="stylesheet" type="text/css" href="res/css/ui-carousel.min.css">	
+	<link rel="stylesheet" type="text/css" href="res/css/gridforms.css">
+	<link rel="stylesheet" type="text/css" href="res/css/slick.css">
+	<link rel="stylesheet" type="text/css" href="res/css/slick-theme.css">
 	<link rel="stylesheet" type="text/css" href="res/css/app.css">
 </head>
 
@@ -77,13 +79,13 @@
 	<script src="res/js/responsive-elements.js"></script>
 	<script src="res/js/gridforms.js"></script>
 	<script src="res/js/highcharts.js"></script>
+	<script src="res/js/slick.min.js"></script>
 	<script src="res/js/underscore.min.js"></script>
 	<script src="res/js/highcharts.js"></script>	
 	<script src="res/js/sockjs.min.js"></script>
 	<script src="res/js/stomp.min.js"></script>
 	<script src="res/js/flask.js"></script>
 	<script src="res/js/angular-underscore.min.js"></script>	
-	<script src="res/js/ui-carousel.min.js"></script>	
 	<script src="res/app/app.js"></script>		
 	<script src="res/app/reporte.js"></script>		
 	<script src="res/app/reportert.js"></script>

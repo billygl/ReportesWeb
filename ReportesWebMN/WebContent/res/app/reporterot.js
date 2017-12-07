@@ -1,10 +1,18 @@
-function ReporteRotController($scope, $http, RestAPI, $filter){
+function ReporteRotController($scope, $http, RestAPI, $timeout){
 	var ctrl = this;
-	ctrl.slides = ["1", "2", "3", "4"];//not working last item
+
 	
 	this.$onInit = function() {
 		$scope.titulo_procesado = ctrl.titulo;
-		
+		$timeout(function(){
+			$('.rotativos').slick({
+				  dots: true,
+				  slidesToShow: 1,
+				  slidesToScroll: 1,
+				  autoplay: true,
+				  autoplaySpeed: 7000,
+		      });
+		}, 1500);
 	};
 }
 angular.module('reportes')

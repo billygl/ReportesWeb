@@ -115,10 +115,9 @@ function ReporteRTController($scope, $timeout){
 	this.$onInit = function() {
 		$scope.titulo_procesado = ctrl.titulo;
 		$scope.container = 'cnrptrt'  + ctrl.titulo;
-		console.log($("#" + $scope.container));
 		//$scope.graph();
 		//TODO improve
-		$timeout($scope.graph, 2500);//la vista carga despues de $scope.graph. Esperamos 2 segundos
+		$timeout($scope.graph, 1500);//la vista carga despues de $scope.graph. Esperamos 2 segundos
 	};
 }
 angular.module('reportes')

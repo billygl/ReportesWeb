@@ -1,4 +1,4 @@
-angular.module("reportes", ["ngRoute", "ngResource", "angular-underscore","ui.carousel"])
+angular.module("reportes", ["ngRoute", "ngResource", "angular-underscore"])
 .config(function($routeProvider) {
     $routeProvider
     .when("/reporte1", {
